@@ -1,7 +1,7 @@
 package com.example.lanhousefx.Model.Dao.impl;
 
 
-import com.example.lanhousefx.Model.Dao.ConsolesDAO;
+import com.example.lanhousefx.Model.Dao.ConsolesDao;
 import com.example.lanhousefx.Model.entities.Consoles;
 import com.example.lanhousefx.db.DB;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
-public class ConsolesDaoJDBC implements ConsolesDAO {
+public class ConsolesDaoJDBC implements ConsolesDao {
 
     private Connection conn;
     public ConsolesDaoJDBC(Connection conn) {

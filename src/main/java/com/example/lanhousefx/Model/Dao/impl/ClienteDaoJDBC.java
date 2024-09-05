@@ -1,6 +1,6 @@
 package com.example.lanhousefx.Model.Dao.impl;
 
-import com.example.lanhousefx.Model.Dao.ClienteDAO;
+import com.example.lanhousefx.Model.Dao.ClienteDao;
 import com.example.lanhousefx.Model.entities.Cliente;
 import com.example.lanhousefx.db.DB;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 import  java.sql.*;
 
-public class ClienteDaoJDBC implements ClienteDAO {
+public class ClienteDaoJDBC implements ClienteDao {
 
     private Connection conn;
     public ClienteDaoJDBC(Connection conn) {
@@ -48,30 +48,30 @@ public class ClienteDaoJDBC implements ClienteDAO {
             switch (op){
                 case "1":
                     st = conn.prepareStatement("update Cliente "+
-                            "set cpf=? where telefone=?");
+                            "set cpf=? where idCliente=?");
                     st.setString(1, c.getCpf());
-                    st.setString(2, c.getTelefone());
+                    st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
                 case "2":
                     st = conn.prepareStatement("update Cliente "+
-                            "set nome=? where cpf=?");
+                            "set nome=? where idCliente=?");
                     st.setString(1, c.getNome());
-                    st.setString(2, c.getCpf());
+                    st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
                 case "3":
                     st = conn.prepareStatement("update Cliente "+
-                            "set telefone=? where cpf=?");
+                            "set telefone=? where idCliente=?");
                     st.setString(1, c.getTelefone());
-                    st.setString(2, c.getCpf());
+                    st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
                 case "4":
                     st = conn.prepareStatement("update Cliente "+
-                            "set dataNascimento=? where cpf=?");
+                            "set dataNascimento=? where idCliente=?");
                     st.setDate(1, new java.sql.Date(c.getDataNascimento().getTime()));
-                    st.setString(2, c.getCpf());
+                    st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
                 default:
@@ -100,14 +100,14 @@ public class ClienteDaoJDBC implements ClienteDAO {
     }
 
     @Override
-    public Cliente procurarPorNome(String nome) { // Vai alterar pelo id ouu deixar o nome?
+    public Cliente procurarPorId(int id) {
         PreparedStatement st = null;
         ResultSet rs = null;
 
         try {
             st = conn.prepareStatement("select * from Cliente "+
-                    "where nome=?");
-            st.setString(1, nome);
+                    "where idCliente=?");
+            st.setInt(1, id);
             rs = st.executeQuery();
             if(rs.next()){
                 Cliente c = new Cliente();

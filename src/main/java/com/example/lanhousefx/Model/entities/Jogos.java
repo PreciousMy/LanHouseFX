@@ -1,10 +1,19 @@
 package com.example.lanhousefx.Model.entities;
 
-public class Jogo {
+public class Jogos {
     private int idJogo;
     private String nome;
     private String desenvolvedora;
     private int idConsole;
+    private byte[] capa;
+
+    public byte[] getCapa() {
+        return capa;
+    }
+
+    public void setCapa(byte[] capa) {
+        this.capa = capa;
+    }
 
     public int getIdJogo() {
         return idJogo;
