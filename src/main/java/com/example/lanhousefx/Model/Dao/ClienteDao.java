@@ -4,11 +4,11 @@ import com.example.lanhousefx.Model.entities.Cliente;
 
 import java.util.List;
 
-public interface ClienteDAO {
+public interface ClienteDao {
 
         void inserir(Cliente c);
         void atualizar(Cliente c,String op);
         void deletarPorId(int id);
-        Cliente procurarPorNome(String nome);
+        Cliente procurarPorId(int id);
         List<Cliente> procurarTodos();
 }
