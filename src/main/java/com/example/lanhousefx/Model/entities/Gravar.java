@@ -40,10 +40,10 @@ public class Gravar {
     }
 
     public void setDataPedido(Date dataPedido) {
-        this.dataPedido = dataPedido;
+        this.dataPedido = this.dataPedido;
     }
 
-    public char getEstado() {
+    public Character getEstado() {
         return estado;
     }
 

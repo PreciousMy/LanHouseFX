@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GravarDao {
     void inserir(Gravar g);
-    void atualizar(Gravar g);
+    void atualizar(Gravar g, String op);
     void deletarPorId(int id);
     Gravar procurarPorId(int id);
     List<Gravar> procurarTodos();
