@@ -7,7 +7,6 @@ import com.example.lanhousefx.db.DB;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class JogoGeneroDaoJDBC implements JogoGeneroDao {
     private Connection conn;
@@ -50,27 +49,21 @@ public class JogoGeneroDaoJDBC implements JogoGeneroDao {
     }
 
     @Override
-    public HashMap<Integer, ArrayList<Integer>> procurarPorId(int id) {
+    public ArrayList<String> procurarPorId(int id) {
         PreparedStatement st=null;
         ResultSet rs=null;
 
         try {
-            st = conn.prepareStatement("select * from jogoGenero where "+
-                    "idJogo=?");
+            st = conn.prepareStatement("select Genero.genero from Genero inner join"+
+                    " jogoGenero on Genero.genero_PK = jogoGenero.genero_PK where jogoGenero.idJogo=?");
             st.setInt(1,id);
             rs = st.executeQuery();
-            HashMap<Integer,ArrayList<Integer>> generos =new HashMap<Integer, ArrayList<Integer>>();
-            ArrayList<Integer> lista = new ArrayList<>();
+            ArrayList<String> lista = new ArrayList<>();
             Boolean primeira = true;
             while(rs.next()) {
-                int aux= rs.getInt("genero_PK");
-                if (primeira){
-                    generos.put(rs.getInt("jogoID"),lista);
-                    primeira=false;
-                }
-                generos.get(rs.getInt("jogoID")).add(aux);
+                lista.add(rs.getString(1));
             }
-            return generos;
+            return lista;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
