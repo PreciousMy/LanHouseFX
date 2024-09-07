@@ -41,21 +41,28 @@ public class VerJogosController {
             //muito provavel não da problema com varios generos
 
             ArrayList<String> lista = new ArrayList<>();
+            TreeItem<String> generos;
             lista = DaoFactory.createJogoGeneroDao().procurarPorId(jogoAux.getIdJogo());
-            TreeItem<String> generos = new TreeItem<>("Genero(s)");
-            for(String s : lista) {
-                generos.getChildren().add(new TreeItem<>(s));
+            //Se a lista de generos retonar nulo, não havera aba para generos
+            if(lista != null) {
+                generos = new TreeItem<>("Genero(s)");
+                for(String s : lista) {
+                    generos.getChildren().add(new TreeItem<>(s));
+                }
+                jogoNome.getChildren().addAll(codigoJogo, devJogo, idConsole,generos);
+            }else{
+                jogoNome.getChildren().addAll(codigoJogo, devJogo, idConsole);
             }
 
             //Envia so a lista de nomesGeneros completa,
             // não sei se da problema com grandes quantidades
             //TreeItem<String> generos = new TreeItem<>("Generos: "+DaoFactory.createJogoGeneroDao().procurarPorId(jogoAux.getIdJogo()));
 
-            jogoNome.getChildren().addAll(codigoJogo, devJogo, idConsole,generos);
+
+            //jogoNome.getChildren().addAll(codigoJogo, devJogo, idConsole,generos);
             pai.getChildren().add(jogoNome);
         }
         treeView.setRoot(pai);
-
     }
 
 

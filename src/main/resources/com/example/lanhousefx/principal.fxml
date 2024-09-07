@@ -33,7 +33,7 @@
           <Menu mnemonicParsing="false" text="Jogos">
             <items>
               <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Ver Jogos" />
-                  <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo" />
+                  <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo/Editar" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cliente">
