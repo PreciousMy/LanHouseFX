@@ -137,7 +137,7 @@ public class JogosDaoJDBC implements JogosDao {
                 j.setNome(rs.getString("nome"));
                 j.setDesenvolvedora(rs.getString("desenvolvedora"));
                 j.setIdConsole(rs.getInt("idConsole"));
-                j.setCapa(rs.getBytes("capa"));
+                //j.setCapa(rs.getBytes("capa"));
                 lista.add(j);
             }
             return lista;
@@ -148,4 +148,29 @@ public class JogosDaoJDBC implements JogosDao {
             DB.closeResultSet(rs);
         }
     }
+
+    @Override
+    public String nomeConsole(int idJ) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String nomeConsole;
+        try {
+            st = conn.prepareStatement("select nomeConsole from Jogos"+
+                    " inner join Consoles on Jogos.idConsole = Consoles.idConsole where Jogos.idJogo=?");
+            st.setInt(1, idJ);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                nomeConsole = rs.getString(1);
+                return nomeConsole;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            DB.closedStatement(st);
+            DB.closeResultSet(rs);
+        }
+
+        return null;
+    }
+
 }
