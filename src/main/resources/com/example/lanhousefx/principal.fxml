@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,15 +8,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="769.0" style="-fx-background-color: #bcbcbc;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="769.0" style="-fx-background-color: #bcbcbc;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.ApplicationController">
    <children>
       <ImageView fitHeight="560.0" fitWidth="791.0" layoutX="-11.0" layoutY="25.0" pickOnBounds="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -32,59 +28,36 @@
             <Image url="@../../../img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="50.0" layoutY="116.0" prefHeight="329.0" prefWidth="155.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #ad7031;" text="Cadastro" textFill="WHITE">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #ad7031;" text="Reserva" textFill="WHITE" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #ad7031;" text="Gravação" textFill="WHITE" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #ad7031;" text="Consulta" textFill="WHITE" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </GridPane>
-      <MenuBar prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #ad7031;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <MenuBar prefHeight="22.0" prefWidth="172.0" style="-fx-background-color: #ad7031;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Jogos">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Ver Jogos" />
+                  <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Cliente">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" text="Ver Clientes" />
+                  <MenuItem mnemonicParsing="false" text="Consulta" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Reservas">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Fazer Reserva" />
+                  <MenuItem mnemonicParsing="false" text="Ver Reservas" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Gravações">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Fazer Gravação" />
+                  <MenuItem mnemonicParsing="false" text="Ver Gravações" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="426.0" layoutY="37.0" text="Vulkani">
+      <Label layoutX="226.0" layoutY="50.0" text="Vulkani">
          <font>
             <Font name="Arial Black" size="77.0" />
          </font>

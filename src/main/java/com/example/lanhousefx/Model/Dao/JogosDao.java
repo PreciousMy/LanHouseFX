@@ -9,4 +9,5 @@ public interface JogosDao {
     void deletarPorId(int id);
     Jogos procurarPorId(int id);
     List<Jogos> procurarTodos();
+    String nomeConsole(int idJ);
 }
