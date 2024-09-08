@@ -103,6 +103,7 @@ public class JogosDaoJDBC implements JogosDao {
 
         try {
             st = conn.prepareStatement("select * from Jogos where idJogo=?");
+            st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
                 Jogos j = new Jogos();
@@ -110,7 +111,7 @@ public class JogosDaoJDBC implements JogosDao {
                 j.setNome(rs.getString("nome"));
                 j.setDesenvolvedora(rs.getString("desenvolvedora"));
                 j.setIdConsole(rs.getInt("idConsole"));
-                j.setCapa(rs.getBytes("capa"));
+                //j.setCapa(rs.getBytes("capa"));
                 return j;
             }
         } catch (SQLException e) {

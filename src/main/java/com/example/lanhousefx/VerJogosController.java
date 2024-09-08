@@ -2,12 +2,12 @@ package com.example.lanhousefx;
 
 import com.example.lanhousefx.Model.Dao.DaoFactory;
 import com.example.lanhousefx.Model.entities.Jogos;
+import com.example.lanhousefx.utils.Alerta;
 import com.sun.source.tree.Tree;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +19,12 @@ public class VerJogosController {
 
     @FXML
     private TreeView<String> treeView;
+
+    @FXML
+    private TextField codigoIN;
+    @FXML
+    private Button executarDel;
+
     @FXML
     public void initialize() {
 
@@ -32,9 +38,9 @@ public class VerJogosController {
         List<Jogos> jogos = new ArrayList<>();
         jogos = DaoFactory.createJogosDao().procurarTodos();
         for(Jogos jogoAux : jogos) {
-            TreeItem<String> jogoNome = new TreeItem<>(jogoAux.getNome().toString());
+            TreeItem<String> jogoNome = new TreeItem<>(jogoAux.getNome());
             TreeItem<String> codigoJogo = new TreeItem<>("Codigo: "+(Integer) jogoAux.getIdJogo());
-            TreeItem<String> devJogo = new TreeItem<>("Desenvolvedora: "+jogoAux.getDesenvolvedora().toString());
+            TreeItem<String> devJogo = new TreeItem<>("Desenvolvedora: "+jogoAux.getDesenvolvedora());
             TreeItem<String> idConsole = new TreeItem<>("Console: "+DaoFactory.createJogosDao().nomeConsole(jogoAux.getIdJogo()));
 
             //Cria uma lista de generos, que expande indefinidamente
@@ -65,5 +71,17 @@ public class VerJogosController {
         treeView.setRoot(pai);
     }
 
+    @FXML
+    public void onExecutarDelclicked(){
+        if(DaoFactory.createJogosDao().procurarPorId(Integer.parseInt(codigoIN.getText())) == null) {
+            Alerta.novoAlerta("Impossivel Deletar",null,"Jogo Não Encontrado", Alert.AlertType.ERROR);
+            codigoIN.clear();
+        }else{
+            DaoFactory.createJogosDao().deletarPorId(Integer.parseInt(codigoIN.getText()));
+            Alerta.novoAlerta("Sucesso",null,"Jogo Deletado com Exito", Alert.AlertType.INFORMATION);
+            codigoIN.clear();
+        }
+        Platform.runLater(()-> initialize());
+    }
 
 }
