@@ -59,13 +59,15 @@ public class JogoGeneroDaoJDBC implements JogoGeneroDao {
             st.setInt(1,id);
             rs = st.executeQuery();
             ArrayList<String> lista = new ArrayList<>();
-            Boolean primeira = true;
             while(rs.next()) {
                 lista.add(rs.getString(1));
             }
             return lista;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            DB.closedStatement(st);
+            DB.closeResultSet(rs);
         }
     }
 
