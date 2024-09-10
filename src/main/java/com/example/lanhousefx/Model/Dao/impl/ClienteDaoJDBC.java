@@ -22,13 +22,15 @@ public class ClienteDaoJDBC implements ClienteDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("insert into "+
-                    "Cliente(cpf,nome,telefone,dataRegistro,dataNascimento) "+
+                    "Cliente(usuario,senha,cpf,nome,telefone,dataRegistro,dataNascimento) "+
                     "values(?,?,?,?,?)");
-            st.setString(1, c.getCpf());
-            st.setString(2, c.getNome());
-            st.setString(3, c.getTelefone());
-            st.setDate(4, new java.sql.Date(c.getDataRegistro().getTime()));
-            st.setDate(5, new java.sql.Date(c.getDataNascimento().getTime()));
+            st.setString(1, c.getUsiario());
+            st.setString(2, c.getSenha());
+            st.setString(3, c.getCpf());
+            st.setString(4, c.getNome());
+            st.setString(5, c.getTelefone());
+            st.setDate(6, new java.sql.Date(c.getDataRegistro().getTime()));
+            st.setDate(7, new java.sql.Date(c.getDataNascimento().getTime()));
 
             st.executeUpdate();
 
@@ -48,26 +50,40 @@ public class ClienteDaoJDBC implements ClienteDao {
             switch (op){
                 case "1":
                     st = conn.prepareStatement("update Cliente "+
+                            "set usuario=? where idCliente=?");
+                    st.setString(1, c.getUsiario());
+                    st.setInt(2, c.getIdCliente());
+                    st.executeUpdate();
+                    break;
+                case "2":
+                    st = conn.prepareStatement("update Cliente "+
+                            "set senha=? where idCliente=?");
+                    st.setString(1, c.getSenha());
+                    st.setInt(2, c.getIdCliente());
+                    st.executeUpdate();
+                    break;
+                case "3":
+                    st = conn.prepareStatement("update Cliente "+
                             "set cpf=? where idCliente=?");
                     st.setString(1, c.getCpf());
                     st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
-                case "2":
+                case "4":
                     st = conn.prepareStatement("update Cliente "+
                             "set nome=? where idCliente=?");
                     st.setString(1, c.getNome());
                     st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
-                case "3":
+                case "5":
                     st = conn.prepareStatement("update Cliente "+
                             "set telefone=? where idCliente=?");
                     st.setString(1, c.getTelefone());
                     st.setInt(2, c.getIdCliente());
                     st.executeUpdate();
                     break;
-                case "4":
+                case "6":
                     st = conn.prepareStatement("update Cliente "+
                             "set dataNascimento=? where idCliente=?");
                     st.setDate(1, new java.sql.Date(c.getDataNascimento().getTime()));
@@ -112,6 +128,8 @@ public class ClienteDaoJDBC implements ClienteDao {
             if(rs.next()){
                 Cliente c = new Cliente();
                 c.setIdCliente(rs.getInt("idCliente"));
+                c.setUsiario(rs.getString("usuario"));
+                c.setSenha(rs.getString("senha"));
                 c.setCpf(rs.getString("cpf"));
                 c.setNome(rs.getString("nome"));
                 c.setTelefone(rs.getString("telefone"));
@@ -141,6 +159,8 @@ public class ClienteDaoJDBC implements ClienteDao {
             while(rs.next()){
                 Cliente c = new Cliente();
                 c.setIdCliente(rs.getInt("idCliente"));
+                c.setUsiario(rs.getString("usuario"));
+                c.setSenha(rs.getString("senha"));
                 c.setCpf(rs.getString("cpf"));
                 c.setNome(rs.getString("nome"));
                 c.setTelefone(rs.getString("telefone"));

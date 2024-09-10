@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Cliente {
     private int idCliente;
+    private String usiario;
+    private String senha;
     private String nome;
     private Date dataNascimento;
     private Date dataRegistro;
@@ -16,6 +18,22 @@ public class Cliente {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getUsiario() {
+        return usiario;
+    }
+
+    public void setUsiario(String usiario) {
+        this.usiario = usiario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getNome() {
