@@ -1,8 +1,8 @@
 module com.example.lanhousefx {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
     requires jdk.compiler;
+    requires java.sql.rowset;
 
 
     opens com.example.lanhousefx to javafx.fxml;

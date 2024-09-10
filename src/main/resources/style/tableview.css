@@ -1,0 +1,26 @@
+.table-cell {
+    -fx-font-size: 16px; /* Tamanho da fonte */
+    -fx-alignment: center; /* Centraliza o texto */
+}
+
+.table-view {
+    -fx-background-color: #393838; /* Cor de fundo do corpo da TableView */
+}
+
+.table-view .column-header {
+    -fx-background-color: #495e87; /* Cor de fundo do cabeçalho das colunas */
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #858383; /* Cor de fundo das células da tabela */
+}
+
+.table-view .table-cell {
+    -fx-border-color: #242020; /* Cor da borda das células */
+    -fx-border-width: 0 0 1px 0; /* Largura da borda (inferior) */
+    -fx-border-style: solid; /* Estilo da borda (sólida, pontilhada, etc.) */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #add8e6; /* Cor de fundo para linhas selecionadas */
+}
