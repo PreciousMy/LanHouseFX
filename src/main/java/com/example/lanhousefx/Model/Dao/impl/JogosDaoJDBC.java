@@ -4,6 +4,7 @@ import com.example.lanhousefx.Model.Dao.JogosDao;
 import com.example.lanhousefx.Model.entities.Jogos;
 import com.example.lanhousefx.db.DB;
 
+import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +28,11 @@ public class JogosDaoJDBC implements JogosDao {
             st.setString(1, j.getNome());
             st.setString(2, j.getDesenvolvedora());
             st.setInt(3, j.getIdConsole());
-            st.setBytes(4, j.getCapa());
+
+            java.sql.Blob blob = new SerialBlob(j.getCapa());
+            blob.setBytes(4, j.getCapa());
             st.executeUpdate();
+            blob.free();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }finally {
@@ -67,9 +71,12 @@ public class JogosDaoJDBC implements JogosDao {
                 case "4":
                     st = conn.prepareStatement("update Jogos "+
                             "set capa=? where idJogo=?");
-                    st.setBytes(1, j.getCapa());
+
+                    java.sql.Blob blob = new SerialBlob(j.getCapa());
+                    blob.setBytes(1, j.getCapa());
                     st.setInt(2, j.getIdJogo());
                     st.executeUpdate();
+                    blob.free();
                 break;
                 default:
             }
@@ -111,7 +118,11 @@ public class JogosDaoJDBC implements JogosDao {
                 j.setNome(rs.getString("nome"));
                 j.setDesenvolvedora(rs.getString("desenvolvedora"));
                 j.setIdConsole(rs.getInt("idConsole"));
-                //j.setCapa(rs.getBytes("capa"));
+
+                //Ou talvez j.setCapa(rs.getBytes("capa"));
+                java.sql.Blob blob = rs.getBlob("capa");
+                j.setCapa(blob.getBytes(1,(int)blob.length()));
+                blob.free();
                 return j;
             }
         } catch (SQLException e) {
@@ -139,6 +150,9 @@ public class JogosDaoJDBC implements JogosDao {
                 j.setDesenvolvedora(rs.getString("desenvolvedora"));
                 j.setIdConsole(rs.getInt("idConsole"));
                 //j.setCapa(rs.getBytes("capa"));
+
+                java.sql.Blob blob = rs.getBlob("capa");
+                j.setCapa(blob.getBytes(1,(int)blob.length()));
                 lista.add(j);
             }
             return lista;
