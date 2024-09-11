@@ -28,7 +28,7 @@
                                         <Font name="Arial Bold Italic" size="36.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="124.0" layoutY="95.0" prefHeight="25.0" prefWidth="186.0" />
+                                <TextField layoutX="101.0" layoutY="95.0" prefHeight="25.0" prefWidth="183.0" />
                                 <Button layoutX="102.0" layoutY="191.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: #5882FA;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="13.0" />
@@ -58,7 +58,7 @@
                                         <Image url="@../../../img/icons8-instagram-48.png" />
                                     </image>
                                 </ImageView>
-                                <PasswordField layoutX="121.0" layoutY="138.0" prefHeight="25.0" prefWidth="192.0" />
+                                <PasswordField layoutX="101.0" layoutY="138.0" prefHeight="25.0" prefWidth="183.0" />
                             </children>
                         </AnchorPane>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="25.0" prefHeight="49.0" prefWidth="218.0" text=" Bem - Vindo" textAlignment="CENTER" textFill="#fff8f8">
