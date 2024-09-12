@@ -177,4 +177,28 @@ public class ClienteDaoJDBC implements ClienteDao {
         }
     }
 
+    @Override
+    public int validarLogin(String usuario, String senha) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int id=-1;
+
+        try {
+            st = conn.prepareStatement("select idCliente from Cliente where usuario=? and senha=?");
+            st.setString(1,usuario);
+            st.setString(2,senha);
+            rs = st.executeQuery();
+            if(rs.next()){
+                id = rs.getInt(1);
+                if(id==1) return 1;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            DB.closedStatement(st);
+            DB.closeResultSet(rs);
+        }
+        return id;
+    }
+
 }

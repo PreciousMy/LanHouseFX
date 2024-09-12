@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -8,94 +7,65 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="769.0" style="-fx-background-color: #bcbcbc;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.ApplicationController">
    <children>
-      <ImageView fitHeight="560.0" fitWidth="791.0" layoutX="8.0" layoutY="-3.0" pickOnBounds="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-30.0" AnchorPane.topAnchor="-3.0">
+      <ImageView fitHeight="560.0" fitWidth="791.0" layoutX="-11.0" layoutY="-3.0" pickOnBounds="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="-3.0">
          <image>
-            <Image url="@../../../img/optimus-prime-worst-things.png" />
+            <Image url="@../../../img/Warthog.jpg" />
          </image>
          <effect>
             <BoxBlur />
          </effect>
       </ImageView>
-      <MenuBar prefHeight="22.0" prefWidth="172.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <MenuBar prefHeight="22.0" prefWidth="172.0" style="-fx-background-color: #2986cc;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Cliente">
             <items>
               <MenuItem mnemonicParsing="false" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" text="Ver Clientes" />
-                  <MenuItem mnemonicParsing="false" text="Consulta" />
+                  <MenuItem mnemonicParsing="false" text="Consultar Clientes" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Jogos">
             <items>
-              <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Ver Jogos" />
                   <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo" />
-                  <MenuItem mnemonicParsing="false" text="Editar Jogo" />
+              <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Consultar Jogos" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Console">
                <items>
                   <MenuItem mnemonicParsing="false" text="Adicionar Console" />
-                  <MenuItem mnemonicParsing="false" text="Ver Console" />
-                  <MenuItem mnemonicParsing="false" text="Editar Console" />
+                  <MenuItem mnemonicParsing="false" text="Consultar Console" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Reservas">
                <items>
                   <MenuItem mnemonicParsing="false" text="Fazer Reserva" />
-                  <MenuItem mnemonicParsing="false" text="Editar Reserva" />
-                  <MenuItem mnemonicParsing="false" text="Ver Reservas" />
+                  <MenuItem mnemonicParsing="false" text="Consultar Reservas" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Gravações">
                <items>
                   <MenuItem mnemonicParsing="false" text="Fazer Gravação" />
-                  <MenuItem mnemonicParsing="false" text="Editar Reserva" />
-                  <MenuItem mnemonicParsing="false" text="Ver Gravações" />
+                  <MenuItem mnemonicParsing="false" text="Consultar Gravações" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane layoutX="24.0" layoutY="60.0" prefHeight="431.0" prefWidth="692.0" style="-fx-background-color: linear-gradient(from 57.8199% 0.0% to 78.673% 93.8389%, #7d7dff 0.0%, #b5d7dd 100.0%);">
-         <children>
-            <Label layoutX="118.0" layoutY="107.0" text="Vulkani" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial Black" size="77.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.7867298578199052" endY="0.9383886255924171" startX="0.5781990521327014">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.30092594027519226" green="0.8601852059364319" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <ImageView fitHeight="308.0" fitWidth="338.0" layoutX="402.0" layoutY="164.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Downloads/img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="237.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Downloads/img/Projeto_X__1_-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <ImageView fitHeight="353.0" fitWidth="443.0" layoutX="402.0" layoutY="268.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="310.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Projeto_X__1_-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="363.0" fitWidth="388.0" layoutX="-43.0" layoutY="268.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/megatron_dotm_png_by_kevingame_2_dgot7jn-fullview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

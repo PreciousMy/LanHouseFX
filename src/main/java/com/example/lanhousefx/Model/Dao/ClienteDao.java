@@ -11,4 +11,5 @@ public interface ClienteDao {
         void deletarPorId(int id);
         Cliente procurarPorId(int id);
         List<Cliente> procurarTodos();
+        int validarLogin(String usuario, String senha);
 }

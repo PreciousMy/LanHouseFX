@@ -23,42 +23,18 @@
                     <children>
                         <AnchorPane layoutX="234.0" prefHeight="300.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF;">
                             <children>
-                                <Label layoutX="112.0" layoutY="24.0" prefHeight="49.0" prefWidth="112.0" text="Login" textFill="#2517a8e8">
+                                <Label alignment="CENTER" layoutX="112.0" layoutY="31.0" prefHeight="49.0" prefWidth="112.0" text="Login" textFill="#2517a8e8">
                                     <font>
                                         <Font name="Arial Bold Italic" size="36.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="101.0" layoutY="95.0" prefHeight="25.0" prefWidth="183.0" />
-                                <Button layoutX="102.0" layoutY="191.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: #5882FA;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+                                <TextField fx:id="usuario" layoutX="77.0" layoutY="116.0" prefHeight="25.0" prefWidth="183.0" promptText="Nome Usuario" />
+                                <Button fx:id="entrar" layoutX="102.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#onEntrarClicked" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: #5882FA;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="13.0" />
                                     </font></Button>
-                                <Label layoutX="39.0" layoutY="143.0" text="Senha: " textFill="#2517a8">
-                                    <font>
-                                        <Font name="Arial" size="12.0" />
-                                    </font></Label>
-                                <Label layoutX="37.0" layoutY="100.0" text="Usuario:" textFill="#2517a8">
-                                    <font>
-                                        <Font name="Arial" size="12.0" />
-                                    </font>
-                                </Label>
                                 <ImageView fitHeight="38.0" fitWidth="52.0" layoutX="31.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
-                                <ImageView fitHeight="38.0" fitWidth="52.0" layoutX="83.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../img/icons8-facebook-novo-48.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="38.0" fitWidth="52.0" layoutX="149.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../img/icons8-google-logo-48.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="38.0" fitWidth="52.0" layoutX="217.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../img/icons8-instagram-48.png" />
-                                    </image>
-                                </ImageView>
-                                <PasswordField layoutX="101.0" layoutY="138.0" prefHeight="25.0" prefWidth="183.0" />
+                                <PasswordField fx:id="senha" layoutX="77.0" layoutY="159.0" prefHeight="25.0" prefWidth="183.0" promptText="Senha" />
                             </children>
                         </AnchorPane>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="25.0" prefHeight="49.0" prefWidth="218.0" text=" Bem - Vindo" textAlignment="CENTER" textFill="#fff8f8">
@@ -66,7 +42,7 @@
                                 <Font name="Arial Bold Italic" size="29.0" />
                             </font>
                         </Label>
-                        <Button layoutX="60.0" layoutY="235.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: #0080FF; -fx-border-color: #FFFFFF;" text="Cadastre - se" textFill="WHITE">
+                        <Button fx:id="cadastrar" layoutX="60.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#onCadastrarClicked" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: #0080FF; -fx-border-color: #FFFFFF;" text="Cadastre - se" textFill="WHITE">
                             <font>
                                 <Font name="Arial Bold Italic" size="12.0" />
                             </font></Button>
