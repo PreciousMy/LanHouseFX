@@ -70,6 +70,12 @@ public class ReservaDaoJDBC implements ReservaDao {
                     st.setInt(2,r.getIdCliente());
                     st.executeUpdate();
                     break;
+                case "6":
+                    st = conn.prepareStatement("update Reserva set idCliente=? where idReserva=?");
+                    st.setInt(1,r.getIdCliente());
+                    st.setInt(2,r.getIdReserva());
+                    st.executeUpdate();
+                    break;
                 default:
             }
 

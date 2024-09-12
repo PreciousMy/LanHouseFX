@@ -15,27 +15,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="769.0" style="-fx-background-color: #bcbcbc;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.ApplicationController">
    <children>
-      <ImageView fitHeight="560.0" fitWidth="791.0" layoutX="-11.0" layoutY="25.0" pickOnBounds="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="560.0" fitWidth="791.0" layoutX="8.0" layoutY="-3.0" pickOnBounds="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-30.0" AnchorPane.topAnchor="-3.0">
          <image>
-            <Image url="@../../../img/Warthog.jpg" />
+            <Image url="@../../../img/optimus-prime-worst-things.png" />
          </image>
          <effect>
             <BoxBlur />
          </effect>
       </ImageView>
-      <ImageView fitHeight="308.0" fitWidth="338.0" layoutX="449.0" layoutY="310.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
-         </image>
-      </ImageView>
-      <MenuBar prefHeight="22.0" prefWidth="172.0" style="-fx-background-color: #ad7031;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <MenuBar prefHeight="22.0" prefWidth="172.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Jogos">
-            <items>
-              <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Ver Jogos" />
-                  <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo/Editar" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Cliente">
             <items>
               <MenuItem mnemonicParsing="false" text="Cadastrar" />
@@ -43,40 +32,70 @@
                   <MenuItem mnemonicParsing="false" text="Consulta" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Reservas">
+          <Menu mnemonicParsing="false" text="Jogos">
             <items>
-              <MenuItem mnemonicParsing="false" text="Fazer Reserva" />
-                  <MenuItem mnemonicParsing="false" text="Ver Reservas" />
+              <MenuItem fx:id="verJogos" mnemonicParsing="false" onAction="#onVerjogosClick" text="Ver Jogos" />
+                  <MenuItem fx:id="addJogo" mnemonicParsing="false" onAction="#onAddJogoClick" text="Adicionar Jogo" />
+                  <MenuItem mnemonicParsing="false" text="Editar Jogo" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Console">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Adicionar Console" />
+                  <MenuItem mnemonicParsing="false" text="Ver Console" />
+                  <MenuItem mnemonicParsing="false" text="Editar Console" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reservas">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Fazer Reserva" />
+                  <MenuItem mnemonicParsing="false" text="Editar Reserva" />
+                  <MenuItem mnemonicParsing="false" text="Ver Reservas" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Gravações">
                <items>
                   <MenuItem mnemonicParsing="false" text="Fazer Gravação" />
+                  <MenuItem mnemonicParsing="false" text="Editar Reserva" />
                   <MenuItem mnemonicParsing="false" text="Ver Gravações" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="226.0" layoutY="50.0" text="Vulkani">
-         <font>
-            <Font name="Arial Black" size="77.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="0.7867298578199052" endY="0.9383886255924171" startX="0.5781990521327014">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.75" green="0.5288194417953491" blue="0.1180555522441864" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.5921052694320679" green="0.10142543911933899" blue="0.10142543911933899" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
+      <AnchorPane layoutX="24.0" layoutY="60.0" prefHeight="431.0" prefWidth="692.0" style="-fx-background-color: linear-gradient(from 57.8199% 0.0% to 78.673% 93.8389%, #7d7dff 0.0%, #b5d7dd 100.0%);">
+         <children>
+            <Label layoutX="118.0" layoutY="107.0" text="Vulkani" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="77.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.7867298578199052" endY="0.9383886255924171" startX="0.5781990521327014">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.30092594027519226" green="0.8601852059364319" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="308.0" fitWidth="338.0" layoutX="402.0" layoutY="164.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="237.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/img/Projeto_X__1_-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -77,6 +77,14 @@ public class GravarDaoJDBC implements GravarDao {
                     st.setInt(2,g.getIdCliente());
                     st.executeUpdate();
                     break;
+
+                case "6":
+                    st = conn.prepareStatement("update Garavar " +
+                            "set idCliente=? where idPedido=?");
+                    st.setInt(1, g.getIdCliente());
+                    st.setInt(2,g.getIdPedido());
+                    st.executeUpdate();
+                    break;
                 default:
             }
 

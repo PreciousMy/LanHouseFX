@@ -50,8 +50,8 @@
                </font>
             </Label>
             <TextField layoutX="88.0" layoutY="93.0" prefHeight="25.0" prefWidth="392.0" />
-            <TextField layoutX="95.0" layoutY="146.0" prefHeight="25.0" prefWidth="159.0" />
-            <TextField layoutX="302.0" layoutY="146.0" prefHeight="25.0" prefWidth="181.0" />
+            <TextField layoutX="95.0" layoutY="146.0" prefHeight="25.0" prefWidth="159.0" promptText="(XX)XXXXX-XXXX" />
+            <TextField layoutX="302.0" layoutY="146.0" prefHeight="25.0" prefWidth="181.0" promptText="XXX.XXX.XXX-XX" />
             <DatePicker layoutX="382.0" layoutY="197.0" prefHeight="25.0" prefWidth="104.0" />
             <Label layoutX="249.0" layoutY="201.0" text="Data de Nascimento:" textFill="#2517a8">
                <font>

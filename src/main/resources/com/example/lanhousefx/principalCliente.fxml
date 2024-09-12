@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.PrincipalClienteController">
+    <children>
+        <ImageView fitHeight="491.0" fitWidth="775.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../img/Warthog.jpg" />
+            </image>
+        </ImageView>
+        <MenuBar prefHeight="25.0" prefWidth="761.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Home" />
+                <Menu mnemonicParsing="false" text="Cliente">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Editar cadastro" />
+                        <MenuItem mnemonicParsing="false" text="Ver cadastro" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Jogos">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Listar jogos" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Reserva">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Adicionar reserva" />
+                        <MenuItem mnemonicParsing="false" text="Editar reserva" />
+                        <MenuItem mnemonicParsing="false" text="Listar/Excluir" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Gravação">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Adicionar gravação" />
+                        <MenuItem mnemonicParsing="false" text="Editar gravação" />
+                        <MenuItem mnemonicParsing="false" text="Listar/Excluir" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane layoutX="100.0" layoutY="29.0" prefHeight="378.0" prefWidth="516.0" style="-fx-background-color: linear-gradient(from 57.8199% 0.0% to 78.673% 93.8389%, #7d7dff 0.0%, #b5d7dd 100.0%);">
+            <children>
+                <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="121.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../img/Projeto_X__1_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+            <ImageView fitHeight="259.0" fitWidth="257.0" layoutX="275.0" layoutY="145.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/img/6fd9ed5a926bf0b49514a85e352cf7bc.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="38.0" layoutY="100.0" text="Vulkani" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="65.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.7867298578199052" endY="0.9383886255924171" startX="0.5781990521327014">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.30092594027519226" green="0.8601852059364319" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            </children>
+        </AnchorPane>
+    </children>
+
+</AnchorPane>
