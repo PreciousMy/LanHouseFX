@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.io.ByteArrayInputStream;
@@ -77,11 +78,17 @@ public class VerJogosController {
                             ImageView imageView = new ImageView(imagem);
                             imageView.setFitWidth(170);
                             imageView.setFitHeight(200);
+                            imageView.setPreserveRatio(true);
+
+                            // Aqui fica aonde se modifica fonte e etc do nome do jogo e ID
+                            Text nome = new Text(jogo.getNome());
+                            nome.setWrappingWidth(150);
+
+                            Label idJogo = new Label(Integer.toString(jogo.getIdJogo()));
 
                             // Cria VBox para o nome, ID e nome do Jogo
-                            VBox vbox = new VBox(new Label(jogo.getNome()),
-                                    new Label(Integer.toString(jogo.getIdJogo())));
-                            vbox.setStyle("-fx-alignment: center;");
+                            VBox vbox = new VBox(nome, idJogo);
+                            vbox.setStyle("-fx-alignment: center-left;");
 
                             // Cria HBox para conter ImageView e VBox
                             HBox hbox = new HBox(imageView, vbox);

@@ -15,6 +15,7 @@ public class Application extends javafx.application.Application {
         scene = new Scene(fxmlLoader.load());
         stage.setTitle("Vulkani");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
         stage.setOnCloseRequest(e-> Platform.exit());
     }
@@ -23,6 +24,7 @@ public class Application extends javafx.application.Application {
         Stage stage=new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(url));
         Scene scene = new Scene(fxmlLoader.load());
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         return stage;
