@@ -2,6 +2,7 @@ package com.example.lanhousefx;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -33,6 +34,19 @@ public class Application extends javafx.application.Application {
 
     public static Scene getScene(){
         return scene;
+    }
+
+    public static void atualizaCena(String url) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource(url));
+        scene.setRoot(loader.load());
+
+        Stage stage = (Stage) scene.getWindow();
+        stage.sizeToScene();
+    }
+    public static void atualizaCenaDado(Parent root){
+        scene.setRoot(root);
+        Stage stage = (Stage) scene.getWindow();
+        stage.sizeToScene();
     }
 
     public static void main(String[] args) {
