@@ -181,7 +181,7 @@ public class ClienteDaoJDBC implements ClienteDao {
     public int validarLogin(String usuario, String senha) {
         PreparedStatement st = null;
         ResultSet rs = null;
-        int id=-1;
+        int id=0;
 
         try {
             st = conn.prepareStatement("select idCliente from Cliente where usuario=? and senha=?");
