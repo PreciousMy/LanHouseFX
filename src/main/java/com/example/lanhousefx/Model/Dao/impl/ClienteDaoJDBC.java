@@ -4,6 +4,7 @@ import com.example.lanhousefx.Model.Dao.ClienteDao;
 import com.example.lanhousefx.Model.entities.Cliente;
 import com.example.lanhousefx.db.DB;
 
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +19,12 @@ public class ClienteDaoJDBC implements ClienteDao {
 
     @Override
     public void inserir(Cliente c) { //Falta formatar as datas
-
+        ZoneId defaultZoneId = ZoneId.systemDefault();
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("insert into "+
                     "Cliente(usuario,senha,cpf,nome,telefone,dataRegistro,dataNascimento) "+
-                    "values(?,?,?,?,?)");
+                    "values(?,?,?,?,?,?,?)");
             st.setString(1, c.getUsiario());
             st.setString(2, c.getSenha());
             st.setString(3, c.getCpf());

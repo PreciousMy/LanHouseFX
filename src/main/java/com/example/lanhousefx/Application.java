@@ -7,10 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Stack;
 
 
 public class Application extends javafx.application.Application {
     private static Scene scene;
+    private static Stack<String> pilha = new Stack<String>();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("login.fxml"));
@@ -39,12 +41,19 @@ public class Application extends javafx.application.Application {
     public static void atualizaCena(String url) throws IOException {
         FXMLLoader loader = new FXMLLoader(Application.class.getResource(url));
         scene.setRoot(loader.load());
+        pilha.push(url);
 
         Stage stage = (Stage) scene.getWindow();
         stage.sizeToScene();
     }
-    public static void atualizaCenaDado(Parent root){
-        scene.setRoot(root);
+
+    public static void voltar() throws IOException {
+
+        if(!pilha.isEmpty()){
+            String url = pilha.pop();
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource(url));
+            scene.setRoot(loader.load());
+        }
         Stage stage = (Stage) scene.getWindow();
         stage.sizeToScene();
     }

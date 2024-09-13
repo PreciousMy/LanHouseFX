@@ -30,12 +30,8 @@ public class loginController {
 
         if(id>1){
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("principalCliente.fxml"));
-                Parent root = loader.load();
-                PrincipalClienteController controller = loader.getController();
-                controller.setId(id);
-
-                Application.atualizaCenaDado(root);
+                PrincipalClienteController.cliente.setIdCliente(id);
+                Application.atualizaCena("principalCliente.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
