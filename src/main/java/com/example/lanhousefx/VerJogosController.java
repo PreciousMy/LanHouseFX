@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +123,14 @@ public class VerJogosController {
 
         // Setando os dados na TableView
         tableView.setItems(jogos);
+    }
+
+    public void onVoltarClicked(){
+        try {
+            Application.atualizaCena("principal.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

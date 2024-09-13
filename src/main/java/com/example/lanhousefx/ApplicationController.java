@@ -15,7 +15,7 @@ public class ApplicationController {
     @FXML
     protected void onVerjogosClick(){
         try{
-            Application.newStage("verJogos.fxml");
+            Application.atualizaCena("verJogos.fxml");
         }catch(IOException e){
             throw new RuntimeException(e);
         }
@@ -23,7 +23,7 @@ public class ApplicationController {
     @FXML
     protected void onAddJogoClick(){
         try{
-            Application.newStage("adicionarJogo.fxml");
+            Application.atualizaCena("adicionarJogo.fxml");
         }catch(IOException e){
             throw new RuntimeException(e);
         }

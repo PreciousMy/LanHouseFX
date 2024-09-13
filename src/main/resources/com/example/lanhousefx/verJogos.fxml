@@ -6,15 +6,20 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.VerJogosController">
    <children>
-      <TableView fx:id="tableView" layoutX="214.0" layoutY="24.0" prefHeight="597.0" prefWidth="878.0" style="-fx-font-size: 13px;" stylesheets="@../../../style/tableview.css">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy></TableView>
+      <ImageView fitHeight="51.0" fitWidth="70.0" layoutX="14.0" layoutY="556.0" onMouseClicked="#onVoltarClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/left-arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
       <Button fx:id="executarDel" layoutX="48.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#onExecutarDelclicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #2E64FE;" text="Excluir" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -54,14 +59,12 @@
                   <MenuItem mnemonicParsing="false" text="Listar e Excluir" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Gravação">
-              <items>
-                  <MenuItem mnemonicParsing="false" text="Adicionar gravação" />
-                  <MenuItem mnemonicParsing="false" text="Editar gravação" />
-                  <MenuItem mnemonicParsing="false" text="Listar e Excluir" />
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
+      <TableView fx:id="tableView" layoutX="247.0" layoutY="54.0" prefHeight="538.0" prefWidth="821.0" stylesheets="@../../../style/tableview.css">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
    </children>
 </AnchorPane>
