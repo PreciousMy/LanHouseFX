@@ -42,7 +42,7 @@ public class loginController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else Alerta.novoAlerta("Error",null,"Usuario ou Senha invalidas", Alert.AlertType.ERROR);
+        }else Alerta.novoAlerta("Você não Passara!",null,"Usuario ou Senha invalidas", Alert.AlertType.INFORMATION);
     }
 
 
