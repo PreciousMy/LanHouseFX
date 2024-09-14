@@ -7,10 +7,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ApplicationController {
-    @FXML
-    private MenuItem verJogos;
-    @FXML
-    private MenuItem addJogo;
 
     @FXML
     protected void onVerjogosClick(){
@@ -25,6 +21,15 @@ public class ApplicationController {
         try{
             Application.atualizaCena("adicionarJogo.fxml");
         }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void onVoltarClicked(){
+        try {
+            Application.atualizaCena("login.fxml");
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

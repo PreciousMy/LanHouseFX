@@ -125,6 +125,23 @@ public class VerJogosController {
         tableView.setItems(jogos);
     }
 
+    @FXML
+    TextField procura;
+    public void pesquisa(){
+
+        List<Jogos> jogos = DaoFactory.createJogosDao().procurarTodos();
+        List<Jogos> jogos1 = new ArrayList<>();
+
+        for(Jogos j : jogos){
+            if(j.getNome().toLowerCase().contains(procura.getText().toLowerCase())){
+                jogos1.add(j);
+            }
+        }
+
+        ObservableList<Jogos> listaPorcura = FXCollections.observableArrayList(jogos1);
+        tableView.setItems(listaPorcura);
+    }
+
     public void onVoltarClicked(){
         try {
             Application.atualizaCena("principal.fxml");

@@ -19,12 +19,9 @@ public class PrincipalClienteController {
 
     public void setId(int id) {
         this.id = id;
-        //nomeCliente.setText(DaoFactory.createClienteDao().procurarPorId(id).getNome());
     }
 
     public void initialize(){
-        //System.out.println(cliente.getIdCliente());
-        //System.out.println(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()));
         nomeCliente.setText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getNome());
     }
 
