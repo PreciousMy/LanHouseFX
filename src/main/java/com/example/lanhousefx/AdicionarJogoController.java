@@ -28,10 +28,10 @@ public class AdicionarJogoController {
     private TextField nomeJogo;
     @FXML
     private TextField nomeDev;
-//    @FXML
-//    private TableView<Genero> generosAdd;
-//    @FXML
-//    private TableView<Genero> generosBanco;
+    @FXML
+    private TableView<Genero> generosAdd;
+    @FXML
+    private TableView<Genero> generosBanco;
     @FXML
     private ComboBox<Consoles> consoles;
     @FXML
@@ -57,46 +57,46 @@ public class AdicionarJogoController {
             }
         });
         // Iniciando tables
-//        criarTables();
+        criarTables();
     }
 
-//    public void criarTables(){
-//        // Criando colunas
-//        TableColumn<Genero, String> colunaGenero = new TableColumn<>("Genero");
-//        colunaGenero.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getGenero()));
-//
-//        TableColumn<Genero, String> colunaGenero2 = new TableColumn<>("Generos");
-//        colunaGenero2.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getGenero()));
-//
-//        // Adicionando Colunas
-//        generosAdd.getColumns().add(colunaGenero);
-//        generosBanco.getColumns().add(colunaGenero2);
-//
-//        // Aqui apenas a tabela do bancos de dados é posto valores
-//        List<Genero> generoLista = DaoFactory.createGeneroDao().procurarTodos();
-//        ObservableList<Genero> generos2 = FXCollections.observableArrayList(generoLista);
-//        generosBanco.setItems(generos2);
-//    }
-//
-//    public void onAdicionarClicked(){
-//        Genero addGenero = generosBanco.getSelectionModel().getSelectedItem();
-//
-//        // Lista atual de generos a serem adicionados
-//        // não se usa setItems para não sobrescrever
-//        // apenas a lista associada a table
-//        ObservableList<Genero> generos1 = generosAdd.getItems();
-//
-//        // Checa pra ver se ja tem
-//        if (!generos1.contains(addGenero)) {
-//            generos1.add(addGenero);
-//        }
-//    }
-//
-//    public void onRemoverClicked(){
-//        Genero removerGenero = generosAdd.getSelectionModel().getSelectedItem();
-//        ObservableList<Genero> generos1 = generosAdd.getItems();
-//        generos1.remove(removerGenero);
-//    }
+    public void criarTables(){
+        // Criando colunas
+        TableColumn<Genero, String> colunaGenero = new TableColumn<>("Genero");
+        colunaGenero.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getGenero()));
+
+        TableColumn<Genero, String> colunaGenero2 = new TableColumn<>("Generos");
+        colunaGenero2.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getGenero()));
+
+        // Adicionando Colunas
+        generosAdd.getColumns().add(colunaGenero);
+        generosBanco.getColumns().add(colunaGenero2);
+
+        // Aqui apenas a tabela do bancos de dados é posto valores
+        List<Genero> generoLista = DaoFactory.createGeneroDao().procurarTodos();
+        ObservableList<Genero> generos2 = FXCollections.observableArrayList(generoLista);
+        generosBanco.setItems(generos2);
+    }
+
+    public void onAdicionarClicked(){
+        Genero addGenero = generosBanco.getSelectionModel().getSelectedItem();
+
+        // Lista atual de generos a serem adicionados
+        // não se usa setItems para não sobrescrever
+        // apenas a lista associada a table
+        ObservableList<Genero> generos1 = generosAdd.getItems();
+
+        // Checa pra ver se ja tem
+        if (!generos1.contains(addGenero)) {
+            generos1.add(addGenero);
+        }
+    }
+
+    public void onRemoverClicked(){
+        Genero removerGenero = generosAdd.getSelectionModel().getSelectedItem();
+        ObservableList<Genero> generos1 = generosAdd.getItems();
+        generos1.remove(removerGenero);
+    }
 
     public void onComboxAction(){
         int c = consoles.getSelectionModel().getSelectedItem().getIdConsole();
@@ -128,9 +128,40 @@ public class AdicionarJogoController {
             j.setCapa(novaCapa);
         }
         DaoFactory.createJogosDao().inserir(j);
+        inserirGeneros();
 
         Alerta.novoAlerta("Sucesso",null,"Jogo Adicionado com Exito", Alert.AlertType.INFORMATION);
         Application.atualizaCena("verJogos.fxml");
+    }
+
+    public void inserirGeneros(){
+
+        // Pega todos os id dos generos inseridos
+        ObservableList<Genero> listaIdGenero = generosAdd.getItems();
+        List<Integer> listaID = new ArrayList<>();
+        for(Genero g : listaIdGenero){
+            listaID.add(g.getGenero_pk());
+        }
+        // Como não da para prever o id
+        // pega o jogo da lista de todos os jogos que é igual ao jogo recentemente adicionado
+        // considerando nome, desenvolvedora e idConsole
+        List<Jogos> jogosTodos = DaoFactory.createJogosDao().procurarTodos();
+        Jogos jogoEncontrado = new Jogos();
+        for (Jogos jl : jogosTodos){
+            if(j.getNome().equals(jl.getNome()) &&
+                    j.getDesenvolvedora().equals(jl.getDesenvolvedora()) &&
+                    j.getIdConsole() == jl.getIdConsole()){
+                jogoEncontrado = jl;
+            }
+        }
+        // Aqui adiciona na tabela jogo genero o idJogo e idGenero
+        // usando a lista de idsGeneros dada
+        JogoGenero generoJogo = new JogoGenero();
+        for(Integer id : listaID){
+            generoJogo.setGenero_pk(id);
+            generoJogo.setIdJogo(jogoEncontrado.getIdJogo());
+            DaoFactory.createJogoGeneroDao().inserir(generoJogo);
+        }
     }
 
     public void onCancelarClicked(){
