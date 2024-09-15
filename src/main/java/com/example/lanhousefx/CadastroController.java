@@ -9,9 +9,8 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
 
-public class cadastroController {
+public class CadastroController {
     @FXML
     private TextField nome;
     @FXML

@@ -8,6 +8,6 @@ import java.util.ArrayList;
 public interface JogoGeneroDao {
     void inserir(JogoGenero j);
     void deletarPorId(int idJogo, int idGenero);
-    ArrayList<String> procurarPorId(int id);
+    ArrayList<Integer> procurarPorId(int id);
     HashMap<Integer,ArrayList<Integer>> procurarTodos();
 }

@@ -5,6 +5,7 @@ module com.example.lanhousefx {
     requires java.sql.rowset;
     requires transitive mysql.connector.j;
     requires javafx.graphics;
+    requires java.desktop;
 
 
     opens com.example.lanhousefx to javafx.fxml;
