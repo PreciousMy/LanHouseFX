@@ -2,10 +2,7 @@ package com.example.lanhousefx;
 
 import com.example.lanhousefx.Model.Dao.DaoFactory;
 import com.example.lanhousefx.utils.Alerta;
-import com.mysql.cj.protocol.AuthenticationPlugin;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -13,7 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class loginController {
+public class LoginController {
     @FXML
     Button entrar;
     @FXML

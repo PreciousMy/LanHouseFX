@@ -73,7 +73,7 @@ public class JogosDaoJDBC implements JogosDao {
                             "set capa=? where idJogo=?");
 
                     java.sql.Blob blob = new SerialBlob(j.getCapa());
-                    blob.setBytes(1, j.getCapa());
+                    st.setBlob(1, blob);
                     st.setInt(2, j.getIdJogo());
                     st.executeUpdate();
                     blob.free();

@@ -71,6 +71,7 @@ public class GeneroDaoJDBC implements GeneroDao {
         try {
             st = conn.prepareStatement("select * from Genero "+
                     "where genero_PK=?");
+            st.setInt(1,id);
             rs = st.executeQuery();
 
             if(rs.next()) {

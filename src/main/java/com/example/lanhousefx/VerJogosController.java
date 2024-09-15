@@ -1,6 +1,7 @@
 package com.example.lanhousefx;
 
 import com.example.lanhousefx.Model.Dao.DaoFactory;
+import com.example.lanhousefx.Model.entities.Genero;
 import com.example.lanhousefx.Model.entities.Jogos;
 import com.example.lanhousefx.utils.Alerta;
 import javafx.application.Platform;
@@ -35,12 +36,26 @@ public class VerJogosController {
         int idJogo = tableView.getSelectionModel().getSelectedItem().getIdJogo();
         DaoFactory.createJogosDao().deletarPorId(idJogo);
         Alerta.novoAlerta("Sucesso",null,"Jogo Deletado com Exito", Alert.AlertType.INFORMATION);
-        Platform.runLater(()-> mostrarTable());
+
+        List<Jogos> jogos = DaoFactory.createJogosDao().procurarTodos();
+        ObservableList<Jogos> novaTable = FXCollections.observableArrayList(jogos);
+        tableView.setItems(novaTable);
+
+    }
+
+    @FXML
+    public void onEditarClicked(){
+        try {
+            int jogo = tableView.getSelectionModel().getSelectedItem().getIdJogo();
+            EditarJogoController.jogo.setIdJogo(jogo);
+            Application.atualizaCena("editarJogo.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     private TableView<Jogos> tableView = new TableView<>();
-    boolean primeira = true;
     @FXML
     public void mostrarTable(){
 
@@ -104,19 +119,22 @@ public class VerJogosController {
         // Coluna para gêneros, onde os gêneros são buscados por meio do Dao
         TableColumn<Jogos, String> colunaGeneros = new TableColumn<>("Gênero(s)");
         colunaGeneros.setCellValueFactory(param -> {
-            // Gêneros relacionados ao id do jogo
-            List<String> generos = DaoFactory.createJogoGeneroDao().procurarPorId(param.getValue().getIdJogo());
-            return new SimpleStringProperty(String.join("\n", generos));
+            // Id dos generos
+            List<Integer> generosID = DaoFactory.createJogoGeneroDao().procurarPorId(param.getValue().getIdJogo());
+            // Transformando a lista de id em uma lista de nome para ser usada
+            List<String> generosNomes = new ArrayList<>();
+            for (Integer id : generosID) {
+                generosNomes.add(DaoFactory.createGeneroDao().procurarPorId(id).getGenero());
+            }
+            return new SimpleStringProperty(String.join("\n",generosNomes));
         });
 
-        if(primeira) {
-            // Adicionando as colunas à TableView
-            tableView.getColumns().add(colunaJogo);
-            tableView.getColumns().add(colunaDesenvolvedora);
-            tableView.getColumns().add(colunaConsole);
-            tableView.getColumns().add(colunaGeneros);
-            primeira=false;
-        }
+        // Adicionando as colunas à TableView
+        tableView.getColumns().add(colunaJogo);
+        tableView.getColumns().add(colunaDesenvolvedora);
+        tableView.getColumns().add(colunaConsole);
+        tableView.getColumns().add(colunaGeneros);
+
         // Inserindo Dados
         List<Jogos> jogo = DaoFactory.createJogosDao().procurarTodos();
         ObservableList<Jogos> jogos = FXCollections.observableArrayList(jogo);

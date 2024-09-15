@@ -49,18 +49,18 @@ public class JogoGeneroDaoJDBC implements JogoGeneroDao {
     }
 
     @Override
-    public ArrayList<String> procurarPorId(int id) {
+    public ArrayList<Integer> procurarPorId(int id) {
         PreparedStatement st=null;
         ResultSet rs=null;
 
         try {
-            st = conn.prepareStatement("select Genero.genero from Genero inner join"+
+            st = conn.prepareStatement("select Genero.genero_PK from Genero inner join"+
                     " jogoGenero on Genero.genero_PK = jogoGenero.genero_PK where jogoGenero.idJogo=?");
             st.setInt(1,id);
             rs = st.executeQuery();
-            ArrayList<String> lista = new ArrayList<>();
+            ArrayList<Integer> lista = new ArrayList<>();
             while(rs.next()) {
-                lista.add(rs.getString(1));
+                lista.add(rs.getInt(1));
             }
             return lista;
         } catch (SQLException e) {
