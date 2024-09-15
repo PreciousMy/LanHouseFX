@@ -28,9 +28,8 @@ public class JogosDaoJDBC implements JogosDao {
             st.setString(1, j.getNome());
             st.setString(2, j.getDesenvolvedora());
             st.setInt(3, j.getIdConsole());
-
             java.sql.Blob blob = new SerialBlob(j.getCapa());
-            blob.setBytes(4, j.getCapa());
+            st.setBlob(4, blob);
             st.executeUpdate();
             blob.free();
         } catch (SQLException e) {

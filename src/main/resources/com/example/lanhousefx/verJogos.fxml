@@ -18,7 +18,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <Button fx:id="executarDel" layoutX="74.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#onExecutarDelclicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #2E64FE;" text="Excluir" textFill="WHITE">
+      <Button fx:id="executarDel" layoutX="74.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#onExecutarDelclicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #5882FA;" text="Excluir" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -32,7 +32,7 @@
          </columnResizePolicy>
       </TableView>
       <TextField fx:id="procura" layoutX="15.0" layoutY="35.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="228.0" promptText="Nome para Procura" />
-      <Button layoutX="74.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#onEditarClicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #2E64FE;" text="Editar" textFill="WHITE">
+      <Button layoutX="74.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#onEditarClicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #5882FA;" text="Editar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -40,7 +40,7 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="executarDel11" layoutX="74.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onExecutarDelclicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #2E64FE;" text="Adicionar" textFill="WHITE">
+      <Button layoutX="74.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onAddClicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #5882FA;" text="Adicionar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

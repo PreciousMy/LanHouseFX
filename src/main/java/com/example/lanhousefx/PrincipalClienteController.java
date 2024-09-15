@@ -14,12 +14,6 @@ public class PrincipalClienteController {
     public static Cliente cliente = new Cliente();
     @FXML
     private Label nomeCliente;
-    @FXML
-    private Button voltar;
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void initialize(){
         nomeCliente.setText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getNome());

@@ -1,10 +1,8 @@
 package com.example.lanhousefx;
 
 import com.example.lanhousefx.Model.Dao.DaoFactory;
-import com.example.lanhousefx.Model.entities.Genero;
 import com.example.lanhousefx.Model.entities.Jogos;
 import com.example.lanhousefx.utils.Alerta;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +17,6 @@ import javafx.util.Callback;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +46,15 @@ public class VerJogosController {
             int jogo = tableView.getSelectionModel().getSelectedItem().getIdJogo();
             EditarJogoController.jogo.setIdJogo(jogo);
             Application.atualizaCena("editarJogo.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void onAddClicked(){
+        try {
+            Application.atualizaCena("adicionarJogo.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
