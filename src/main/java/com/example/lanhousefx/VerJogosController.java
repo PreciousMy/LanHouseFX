@@ -37,14 +37,13 @@ public class VerJogosController {
         List<Jogos> jogos = DaoFactory.createJogosDao().procurarTodos();
         ObservableList<Jogos> novaTable = FXCollections.observableArrayList(jogos);
         tableView.setItems(novaTable);
-
     }
 
     @FXML
     public void onEditarClicked(){
         try {
-            int jogo = tableView.getSelectionModel().getSelectedItem().getIdJogo();
-            EditarJogoController.jogo.setIdJogo(jogo);
+            //int jogo = tableView.getSelectionModel().getSelectedItem().getIdJogo();
+            EditarJogoController.jogo.setIdJogo(tableView.getSelectionModel().getSelectedItem().getIdJogo());
             Application.atualizaCena("editarJogo.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -7,7 +7,9 @@ public class Reserva {
     private int idReserva;
     private int idCliente;
     private Date dataReserva;
-    private char estado;
+
+
+    private boolean estado;
     private float preco;
     private int idJogo;
     private Time tempo;
@@ -36,11 +38,11 @@ public class Reserva {
         this.dataReserva = dataReserva;
     }
 
-    public char getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(char estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 

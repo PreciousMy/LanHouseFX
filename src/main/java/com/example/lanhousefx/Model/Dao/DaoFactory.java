@@ -4,7 +4,6 @@ import com.example.lanhousefx.db.DB;
 import com.example.lanhousefx.Model.Dao.impl.ClienteDaoJDBC;
 import com.example.lanhousefx.Model.Dao.impl.ConsolesDaoJDBC;
 import com.example.lanhousefx.Model.Dao.impl.GeneroDaoJDBC;
-import com.example.lanhousefx.Model.Dao.impl.GravarDaoJDBC;
 import com.example.lanhousefx.Model.Dao.impl.JogoGeneroDaoJDBC;
 import com.example.lanhousefx.Model.Dao.impl.JogosDaoJDBC;
 import com.example.lanhousefx.Model.Dao.impl.ReservaDaoJDBC;
@@ -20,10 +19,6 @@ public class DaoFactory {
 
     public static GeneroDao createGeneroDao() {
         return new GeneroDaoJDBC(DB.getConnection());
-    }
-
-    public static GravarDao createGravarDao() {
-        return new GravarDaoJDBC(DB.getConnection());
     }
 
     public static JogoGeneroDao createJogoGeneroDao() {
