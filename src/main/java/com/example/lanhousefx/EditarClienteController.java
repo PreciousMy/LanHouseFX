@@ -2,7 +2,9 @@ package com.example.lanhousefx;
 
 import com.example.lanhousefx.Model.Dao.DaoFactory;
 import com.example.lanhousefx.Model.entities.Cliente;
+import com.example.lanhousefx.utils.Alerta;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -40,7 +42,7 @@ public class EditarClienteController {
     }
 
     public void onAlterarNome(){
-        if(nome!=null){
+        if(!nome.getText().isEmpty()){
             Cliente cl = new Cliente();
             cl.setNome(nome.getText());
             cl.setIdCliente(cliente.getIdCliente());
@@ -51,24 +53,28 @@ public class EditarClienteController {
     }
 
     public void onAlterarCpf(){
-        if(cpf!=null){
-            Cliente cl = new Cliente();
-            cl.setCpf(cpf.getText());
-            cl.setIdCliente(cliente.getIdCliente());
-            DaoFactory.createClienteDao().atualizar(cl,"3");
-            cpf.setPromptText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getCpf());
-            cpf.clear();
+        if(!cpf.getText().isEmpty()){
+            if(cpf.getText().matches("^\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}$")){
+                Cliente cl = new Cliente();
+                cl.setCpf(cpf.getText());
+                cl.setIdCliente(cliente.getIdCliente());
+                DaoFactory.createClienteDao().atualizar(cl,"3");
+                cpf.setPromptText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getCpf());
+                cpf.clear();
+            }else Alerta.novoAlerta("Error",null,"Cpf Invalido", Alert.AlertType.ERROR);
         }
     }
 
     public void onAlterarTelefone(){
-        if(telefone!=null){
-            Cliente cl = new Cliente();
-            cl.setTelefone(telefone.getText());
-            cl.setIdCliente(cliente.getIdCliente());
-            DaoFactory.createClienteDao().atualizar(cl,"5");
-            telefone.setPromptText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getTelefone());
-            telefone.clear();
+        if(!telefone.getText().isEmpty()){
+            if(telefone.getText().matches("^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[0-9])[0-9]{3}\\-?[0-9]{4}$")){
+                Cliente cl = new Cliente();
+                cl.setTelefone(telefone.getText());
+                cl.setIdCliente(cliente.getIdCliente());
+                DaoFactory.createClienteDao().atualizar(cl,"5");
+                telefone.setPromptText(DaoFactory.createClienteDao().procurarPorId(cliente.getIdCliente()).getTelefone());
+                telefone.clear();
+            }else Alerta.novoAlerta("Error",null,"Telefone Invalido", Alert.AlertType.ERROR);
         }
     }
 
