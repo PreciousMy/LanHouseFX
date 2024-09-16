@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableView?>
@@ -19,19 +20,40 @@
             <BoxBlur />
          </effect>
       </ImageView>
-      <TextField fx:id="nomeJogo" focusTraversable="false" layoutX="80.0" layoutY="62.0" prefHeight="25.0" prefWidth="198.0" promptText="Nome" />
-      <TextField fx:id="nomeDev" focusTraversable="false" layoutX="80.0" layoutY="109.0" prefHeight="25.0" prefWidth="198.0" promptText="Desenvolvedora" />
+      <TextField fx:id="nomeJogo" focusTraversable="false" layoutX="80.0" layoutY="62.0" prefHeight="25.0" prefWidth="198.0" promptText="Nome">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="nomeDev" focusTraversable="false" layoutX="80.0" layoutY="109.0" prefHeight="25.0" prefWidth="198.0" promptText="Desenvolvedora">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
       <ImageView fx:id="capa" fitHeight="227.0" fitWidth="173.0" layoutX="357.0" layoutY="20.0" onMouseClicked="#onImageClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/padrao.jpg" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ComboBox fx:id="consoles" focusTraversable="false" layoutX="367.0" layoutY="270.0" onAction="#onComboxAction" prefWidth="150.0" promptText="Console" />
-      <Button fx:id="salvar" layoutX="368.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#onSalvarClicked" text="Salvar Jogo" />
-      <Button layoutX="458.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#onCancelarClicked" text="Cancelar" />
+      <Button fx:id="salvar" layoutX="368.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#onSalvarClicked" text="Salvar Jogo">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="458.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#onCancelarClicked" text="Cancelar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TableView fx:id="generosAdd" layoutX="28.0" layoutY="163.0" prefHeight="169.0" prefWidth="150.0" />
       <TableView fx:id="generosBanco" layoutX="185.0" layoutY="163.0" prefHeight="169.0" prefWidth="150.0" />
-      <Button layoutX="71.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#onRemoverClicked" text="Remover" />
-      <Button layoutX="227.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#onAdicionarClicked" text="Adicionar" />
+      <Button layoutX="71.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#onRemoverClicked" text="Remover">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="227.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#onAdicionarClicked" text="Adicionar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

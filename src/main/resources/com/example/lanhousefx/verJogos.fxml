@@ -11,6 +11,11 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.VerJogosController">
    <children>
+      <ImageView fitHeight="607.0" fitWidth="1068.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../img/base.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="51.0" fitWidth="70.0" layoutX="14.0" layoutY="556.0" onMouseClicked="#onVoltarClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/left-arrow.png" />
@@ -31,7 +36,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField fx:id="procura" layoutX="15.0" layoutY="35.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="228.0" promptText="Nome para Procura" />
+      <TextField fx:id="procura" layoutX="15.0" layoutY="35.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="228.0" promptText="Nome para Procura">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
       <Button layoutX="74.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#onEditarClicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #5882FA;" text="Editar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

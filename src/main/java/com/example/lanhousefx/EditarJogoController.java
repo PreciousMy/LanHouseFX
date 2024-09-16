@@ -148,7 +148,7 @@ public class EditarJogoController {
     }
 
     public void onSalvarNomeClicked(){
-        if(nome!=null){
+        if(!nome.getText().isEmpty()){
             Jogos j = new Jogos();
             j.setNome(nome.getText());
             j.setIdJogo(jogo.getIdJogo());
@@ -159,7 +159,7 @@ public class EditarJogoController {
     }
 
     public void onSalvarDevClicked(){
-        if(desenvolvedora!=null){
+        if(!desenvolvedora.getText().isEmpty()){
             Jogos j = new Jogos();
             j.setDesenvolvedora(desenvolvedora.getText());
             j.setIdJogo(jogo.getIdJogo());

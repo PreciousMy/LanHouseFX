@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 
 public class CadastroController {
     @FXML
@@ -17,8 +16,6 @@ public class CadastroController {
     private TextField telefone;
     @FXML
     private TextField cpf;
-    @FXML
-    private DatePicker registro;
     @FXML
     private DatePicker nascimento;
     @FXML
@@ -35,7 +32,7 @@ public class CadastroController {
 //            }
 //        });
 
-        if(usuario != null || senha != null){
+        if(!usuario.getText().isEmpty() && !senha.getText().isEmpty()){
             Cliente c = new Cliente();
             c.setNome(nome.getText());
             c.setCpf(cpf.getText());

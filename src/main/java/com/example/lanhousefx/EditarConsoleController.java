@@ -29,7 +29,7 @@ public class EditarConsoleController {
     }
 
     public void onNomeAlterarClicked() {
-        if(nome!=null){
+        if(!nome.getText().isEmpty()){
             Consoles console = new Consoles();
             console.setNomeConsole(nome.getText());
             console.setIdConsole(c.getIdConsole());
@@ -40,7 +40,7 @@ public class EditarConsoleController {
     }
 
     public void onEmpresaAlterarClicked() {
-        if(empresa!=null){
+        if(!empresa.getText().isEmpty()){
             Consoles console = new Consoles();
             console.setEmpresa(empresa.getText());
             console.setIdConsole(c.getIdConsole());
