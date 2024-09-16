@@ -10,11 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class VerConsoleController {
     @FXML
@@ -42,13 +44,28 @@ public class VerConsoleController {
         tabelaConsoles.setItems(consoles);
     }
 
+    private boolean confirmar =false;
     public void onExcluirClicked(){
-        int idConsole = tabelaConsoles.getSelectionModel().getSelectedItem().getIdConsole();
-        DaoFactory.createConsolesDao().deletarPorId(idConsole);
-        Alerta.novoAlerta("Sucesso",null,"Console Deletado com Exito", Alert.AlertType.INFORMATION);
+        confirmacao();
+        if (confirmar){
+            int idConsole = tabelaConsoles.getSelectionModel().getSelectedItem().getIdConsole();
+            DaoFactory.createConsolesDao().deletarPorId(idConsole);
+            Alerta.novoAlerta("Sucesso",null,"Console Deletado com Exito", Alert.AlertType.INFORMATION);
 
-        ObservableList<Consoles> novaTable = FXCollections.observableArrayList(DaoFactory.createConsolesDao().procurarTodos());
-        tabelaConsoles.setItems(novaTable);
+            ObservableList<Consoles> novaTable = FXCollections.observableArrayList(DaoFactory.createConsolesDao().procurarTodos());
+            tabelaConsoles.setItems(novaTable);
+        }
+    }
+
+    public void confirmacao(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(null);
+        alert.setHeaderText(null);
+        alert.setContentText("Deseja mesmo Excluir este Console?");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if(buttonType.isPresent() && buttonType.get().equals(ButtonType.OK)) {
+            confirmar = true;
+        }
     }
 
     public void onEditarClicked(){
