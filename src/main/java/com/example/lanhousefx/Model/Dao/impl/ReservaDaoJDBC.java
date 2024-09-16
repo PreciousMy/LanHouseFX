@@ -22,7 +22,7 @@ public class ReservaDaoJDBC implements ReservaDao {
                     "Reserva(idCliente, estado, dataReserva,tempo,idJogo,preco) "+
                     "values(?,?,?,?,?,?)");
             st.setInt(1,r.getIdCliente());
-            st.setString(2, String.valueOf(r.getEstado()));
+            st.setBoolean(2, r.isEstado());
             st.setDate(3, new Date(r.getDataReserva().getTime()));
             st.setTime(4,r.getTempo());
             st.setInt(5,r.getIdJogo());
@@ -41,9 +41,9 @@ public class ReservaDaoJDBC implements ReservaDao {
         try {
             switch (op){
                 case "1":
-                    st = conn.prepareStatement("update Reserva set estado=? where idCliente=?");
-                    st.setString(2, String.valueOf(r.getEstado()));
-                    st.setInt(2,r.getIdCliente());
+                    st = conn.prepareStatement("update Reserva set estado=? where idReserva=?");
+                    st.setBoolean(1, r.isEstado());
+                    st.setInt(2,r.getIdReserva());
                     st.executeUpdate();
                     break;
                 case "2":
@@ -115,7 +115,7 @@ public class ReservaDaoJDBC implements ReservaDao {
                 Reserva r = new Reserva();
                 r.setIdReserva(rs.getInt("idReserva"));
                 r.setIdCliente(rs.getInt("idCliente"));
-                r.setEstado(rs.getString("estado").charAt(1));
+                r.setEstado(rs.getBoolean("estado"));
                 r.setDataReserva(rs.getDate("dataReserva"));
                 r.setTempo(rs.getTime("tempo"));
                 r.setIdJogo(rs.getInt("idJogo"));
@@ -144,7 +144,7 @@ public class ReservaDaoJDBC implements ReservaDao {
                 Reserva r = new Reserva();
                 r.setIdReserva(rs.getInt("idReserva"));
                 r.setIdCliente(rs.getInt("idCliente"));
-                r.setEstado(rs.getString("estado").charAt(1));
+                r.setEstado(rs.getBoolean("estado"));
                 r.setDataReserva(rs.getDate("dataReserva"));
                 r.setTempo(rs.getTime("tempo"));
                 r.setIdJogo(rs.getInt("idJogo"));
