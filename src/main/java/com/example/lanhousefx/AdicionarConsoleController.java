@@ -42,4 +42,12 @@ public class AdicionarConsoleController {
         }
     }
 
+    public void onVoltarClicked(){
+        try {
+            Application.atualizaCena("verConsole.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

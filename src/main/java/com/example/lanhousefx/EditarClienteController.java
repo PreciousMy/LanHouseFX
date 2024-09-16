@@ -73,7 +73,7 @@ public class EditarClienteController {
     }
 
     public void onAlterarData(){
-        if(dataNascimento!=null){
+        if(dataNascimento.getValue()!=null){
             Cliente cl = new Cliente();
             cl.setDataNascimento(java.sql.Date.valueOf(dataNascimento.getValue()));
             cl.setIdCliente(cliente.getIdCliente());
@@ -83,7 +83,7 @@ public class EditarClienteController {
     }
 
     public void onAlterarUsuario(){
-        if(usuario!=null){
+        if(!usuario.getText().isEmpty()){
             Cliente cl = new Cliente();
             cl.setUsiario(usuario.getText());
             cl.setIdCliente(cliente.getIdCliente());
@@ -94,7 +94,7 @@ public class EditarClienteController {
     }
 
     public void onAlterarSenha(){
-        if(senha!=null){
+        if(!senha.getText().isEmpty()){
             Cliente cl = new Cliente();
             cl.setSenha(senha.getText());
             cl.setIdCliente(cliente.getIdCliente());
