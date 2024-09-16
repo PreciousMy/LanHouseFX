@@ -25,12 +25,9 @@ public class CadastroController {
     private TextField usuario;
     @FXML
     private PasswordField senha;
-    @FXML
-    private Button cadastrar;
 
     @FXML
     public void OnCadastroClicked(){
-        ZoneId defaultZoneId = ZoneId.systemDefault();
 //        nome.textProperty().addListener((observable, oldValue, newValue) -> {
 //            if (newValue.length() > 200) {
 //                copy = copy.substring(0, 200);
@@ -49,7 +46,7 @@ public class CadastroController {
             c.setUsiario(usuario.getText());
             c.setSenha(senha.getText());
             DaoFactory.createClienteDao().inserir(c);
-            Alerta.novoAlerta(null,null,"Massa fi", Alert.AlertType.INFORMATION);
+            Alerta.novoAlerta(null,null,"Cadastro bem Sucedido", Alert.AlertType.INFORMATION);
         }else Alerta.novoAlerta("Error",null,"Usuario ou Senha invalidas", Alert.AlertType.ERROR);
     }
 

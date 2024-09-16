@@ -48,7 +48,7 @@ public class VerReservaController {
             return new SimpleStringProperty(sdf.format(dataR));
         });
 
-        TableColumn<Reserva, String> colunaTempo = new TableColumn<>("Tempo");
+        TableColumn<Reserva, String> colunaTempo = new TableColumn<>("Horario");
         colunaTempo.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getTempo().toString()));
 
         TableColumn<Reserva, String> colunaJogo = new TableColumn<>("Jogo");

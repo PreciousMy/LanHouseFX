@@ -8,6 +8,6 @@ public class Alerta {
         alerta.setTitle(titulo);
         alerta.setHeaderText(cabecalho);
         alerta.setContentText(corpo);
-        alerta.show();
+        alerta.showAndWait();
     }
 }

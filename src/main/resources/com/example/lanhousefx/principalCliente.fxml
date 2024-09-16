@@ -10,7 +10,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="769.0" style="-fx-background-color: #bcbcbc;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lanhousefx.PrincipalClienteController">
@@ -23,7 +27,7 @@
             <BoxBlur />
          </effect>
       </ImageView>
-      <Button layoutX="585.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #2986cc;" text="Sair" textFill="WHITESMOKE">
+      <Button layoutX="705.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #2986cc;" text="Sair" textFill="WHITESMOKE">
          <font>
             <Font size="12.0" />
          </font>
@@ -34,18 +38,17 @@
          <menus>
             <Menu mnemonicParsing="false" text="Cliente">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Consultar Conta" />
+                  <MenuItem mnemonicParsing="false" onAction="#onVerClienteClicked" text="Consultar Conta" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Jogos">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Consultar Jogos" />
+                  <MenuItem mnemonicParsing="false" onAction="#onVerJogosClicked" text="Ver Jogos" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Reservas">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Fazer Reserva" />
-                  <MenuItem mnemonicParsing="false" text="Consultar Reservas" />
+                  <MenuItem mnemonicParsing="false" onAction="#onVerReservaClicked" text="Consultar Reservas" />
                </items>
             </Menu>
          </menus>
@@ -65,10 +68,55 @@
             <Image url="@../../../img/megatron_dotm_png_by_kevingame_2_dgot7jn-fullview.png" />
          </image>
       </ImageView>
-      <BorderPane layoutX="302.0" layoutY="135.0" prefHeight="47.0" prefWidth="167.0">
-         <center>
-            <Label fx:id="nomeCliente" contentDisplay="CENTER" style="-fx-background-color: #2986cc; -fx-background-radius: 5px;" textAlignment="CENTER" textFill="WHITESMOKE" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
+      <HBox alignment="CENTER" layoutX="314.0" layoutY="76.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="nomeCliente1" contentDisplay="CENTER" style="-fx-background-color: #2986cc; -fx-background-radius: 5px; -fx-border-color: #2986cc; -fx-border-width: 5; -fx-border-radius: 5;" text="Bem Vindo" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Italic" size="28.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.5936890840530396" green="0.044225145131349564" blue="0.8684210777282715" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8421052694320679" green="0.046783626079559326" blue="0.046783626079559326" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label fx:id="nomeCliente" contentDisplay="CENTER" style="-fx-background-color: #2986cc; -fx-background-radius: 5px; -fx-border-color: #2986cc; -fx-border-width: 5; -fx-border-radius: 5;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Italic" size="28.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.5936890840530396" green="0.044225145131349564" blue="0.8684210777282715" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8421052694320679" green="0.046783626079559326" blue="0.046783626079559326" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

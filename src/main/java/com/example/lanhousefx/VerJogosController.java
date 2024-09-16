@@ -149,7 +149,7 @@ public class VerJogosController {
     }
 
     @FXML
-    TextField procura;
+    private TextField procura;
     public void pesquisa(){
 
         List<Jogos> jogos = DaoFactory.createJogosDao().procurarTodos();
