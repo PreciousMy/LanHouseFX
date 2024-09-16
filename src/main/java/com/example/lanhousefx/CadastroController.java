@@ -31,20 +31,25 @@ public class CadastroController {
 //                nome.setText(String.valueOf(copy));
 //            }
 //        });
-
-        if(!usuario.getText().isEmpty() && !senha.getText().isEmpty()){
-            Cliente c = new Cliente();
-            c.setNome(nome.getText());
-            c.setCpf(cpf.getText());
-            c.setTelefone(telefone.getText());
-            LocalDate dataAtual = LocalDate.now();
-            c.setDataRegistro(java.sql.Date.valueOf(dataAtual));
-            c.setDataNascimento(java.sql.Date.valueOf(nascimento.getValue()));
-            c.setUsiario(usuario.getText());
-            c.setSenha(senha.getText());
-            DaoFactory.createClienteDao().inserir(c);
-            Alerta.novoAlerta(null,null,"Cadastro bem Sucedido", Alert.AlertType.INFORMATION);
-        }else Alerta.novoAlerta("Error",null,"Usuario ou Senha invalidas", Alert.AlertType.ERROR);
+        if((!telefone.getText().matches("^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[0-9])[0-9]{3}\\-?[0-9]{4}$") &&
+                !telefone.getText().isEmpty()) || (!cpf.getText().isEmpty() &&
+                !cpf.getText().matches("^\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}$"))){
+            Alerta.novoAlerta("Error",null,"Cpf ou Telefone Invalidos", Alert.AlertType.ERROR);
+        }else{
+            if(!usuario.getText().isEmpty() && !senha.getText().isEmpty()){
+                Cliente c = new Cliente();
+                c.setNome(nome.getText());
+                c.setCpf(cpf.getText());
+                c.setTelefone(telefone.getText());
+                LocalDate dataAtual = LocalDate.now();
+                c.setDataRegistro(java.sql.Date.valueOf(dataAtual));
+                c.setDataNascimento(java.sql.Date.valueOf(nascimento.getValue()));
+                c.setUsiario(usuario.getText());
+                c.setSenha(senha.getText());
+                DaoFactory.createClienteDao().inserir(c);
+                Alerta.novoAlerta(null,null,"Cadastro bem Sucedido", Alert.AlertType.INFORMATION);
+            }else Alerta.novoAlerta("Error",null,"Usuario ou Senha invalidas", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
