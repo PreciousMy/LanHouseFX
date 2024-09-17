@@ -31,14 +31,6 @@
                 <Font name="Arial Bold Italic" size="13.0" />
             </font>
         </Button>
-      <Button layoutX="14.0" layoutY="566.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #2E64FE;" text="Voltar" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Button>
       <Button layoutX="34.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#onCancelarClicked" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: #2E64FE;" text="Cancelar Reserva" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -47,5 +39,13 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Button>
+      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="14.0" layoutY="525.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/voltar.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
     </children>
 </AnchorPane>

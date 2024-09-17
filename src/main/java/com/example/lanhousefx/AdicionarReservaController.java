@@ -19,11 +19,11 @@ import javafx.util.Callback;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,22 +124,25 @@ public class AdicionarReservaController {
         if(horario.getText().matches("^([1-9]|0[1-9]|1[0-9]):[0-5][0-9]$")){
             // Testa se os campos estão preenchidos
             if (data.getValue()!=null || tabelaJogos.getSelectionModel().getSelectedItem()!=null ||
-                        precos.getSelectionModel().getSelectedItem()!=null){
-                r.setDataReserva(java.sql.Date.valueOf(data.getValue()));
-                r.setIdJogo(tabelaJogos.getSelectionModel().getSelectedItem().getIdJogo());
-                r.setEstado(true);
-                r.setIdCliente(cliente.getIdCliente());
-                java.util.Date hora = sdf.parse(horario.getText());
-                r.setTempo(new Time(hora.getTime()));
+                        precos.getSelectionModel().getSelectedItem()!=null || !horario.getText().isEmpty()){
+                if(validarReserva()){
+                    Alerta.novoAlerta(null,null,"Outra Reserva Efetuada no mesmo Dia e Horario", Alert.AlertType.INFORMATION);
+                }else {
+                    r.setDataReserva(java.sql.Date.valueOf(data.getValue()));
+                    r.setIdJogo(tabelaJogos.getSelectionModel().getSelectedItem().getIdJogo());
+                    r.setEstado(true);
+                    r.setIdCliente(cliente.getIdCliente());
+                    java.util.Date hora = sdf.parse(horario.getText());
+                    r.setTempo(new Time(hora.getTime()));
 
-                DaoFactory.createReservaDao().inserir(r);
-                Alerta.novoAlerta(null,null,"Reserva Efetuada", Alert.AlertType.INFORMATION);
-                try {
-                    Application.atualizaCena("verReservaCliente.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    DaoFactory.createReservaDao().inserir(r);
+                    Alerta.novoAlerta(null, null, "Reserva Efetuada", Alert.AlertType.INFORMATION);
+                    try {
+                        Application.atualizaCena("verReservaCliente.fxml");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-
             }else Alerta.novoAlerta(null,null,"Campos não Preenchidos ou Selecionados", Alert.AlertType.INFORMATION);
         }else{
             Alerta.novoAlerta(null,null,"Horario Não Permetido", Alert.AlertType.INFORMATION);
@@ -152,6 +155,20 @@ public class AdicionarReservaController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean validarReserva() throws ParseException {
+        DateFormat sdf = new SimpleDateFormat("HH:mm");
+        List<Reserva> reservas = DaoFactory.createReservaDao().procurarTodos();
+
+        java.util.Date hora = sdf.parse(horario.getText());
+        for(Reserva r : reservas){
+            hora = new Time(hora.getTime());
+            if(Date.valueOf(data.getValue()).equals(r.getDataReserva()) && hora.equals(r.getTempo())){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

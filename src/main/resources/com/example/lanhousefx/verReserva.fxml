@@ -45,13 +45,13 @@
             <Image url="@../../../img/shockwave.png" />
          </image>
       </ImageView>
-      <Button layoutX="74.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="42.0" prefWidth="74.0" style="-fx-background-color: #2E64FE;" text="Voltar" textFill="WHITE">
+      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="75.0" layoutY="271.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/voltar.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Button>
+      </ImageView>
     </children>
 </AnchorPane>

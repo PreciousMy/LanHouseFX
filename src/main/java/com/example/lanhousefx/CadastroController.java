@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class CadastroController {
     @FXML
@@ -36,18 +37,23 @@ public class CadastroController {
                 !cpf.getText().matches("^\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}$"))){
             Alerta.novoAlerta("Error",null,"Cpf ou Telefone Invalidos", Alert.AlertType.ERROR);
         }else{
+
             if(!usuario.getText().isEmpty() && !senha.getText().isEmpty()){
-                Cliente c = new Cliente();
-                c.setNome(nome.getText());
-                c.setCpf(cpf.getText());
-                c.setTelefone(telefone.getText());
-                LocalDate dataAtual = LocalDate.now();
-                c.setDataRegistro(java.sql.Date.valueOf(dataAtual));
-                c.setDataNascimento(java.sql.Date.valueOf(nascimento.getValue()));
-                c.setUsiario(usuario.getText());
-                c.setSenha(senha.getText());
-                DaoFactory.createClienteDao().inserir(c);
-                Alerta.novoAlerta(null,null,"Cadastro bem Sucedido", Alert.AlertType.INFORMATION);
+                if(validarCadastor()){
+                    Alerta.novoAlerta("Error",null,"Usuario ja existe", Alert.AlertType.ERROR);
+                }else {
+                    Cliente c = new Cliente();
+                    c.setNome(nome.getText());
+                    c.setCpf(cpf.getText());
+                    c.setTelefone(telefone.getText());
+                    LocalDate dataAtual = LocalDate.now();
+                    c.setDataRegistro(java.sql.Date.valueOf(dataAtual));
+                    c.setDataNascimento(java.sql.Date.valueOf(nascimento.getValue()));
+                    c.setUsiario(usuario.getText());
+                    c.setSenha(senha.getText());
+                    DaoFactory.createClienteDao().inserir(c);
+                    Alerta.novoAlerta(null, null, "Cadastro bem Sucedido", Alert.AlertType.INFORMATION);
+                }
             }else Alerta.novoAlerta("Error",null,"Usuario ou Senha invalidas", Alert.AlertType.ERROR);
         }
     }
@@ -59,5 +65,15 @@ public class CadastroController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean validarCadastor(){
+        List<Cliente> clientes = DaoFactory.createClienteDao().procurarTodos();
+        for(Cliente c : clientes){
+            if(usuario.getText().equals(c.getUsiario()) && senha.getText().equals(c.getSenha())){
+                return true;
+            }
+        }
+        return false;
     }
 }

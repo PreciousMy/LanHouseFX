@@ -49,14 +49,14 @@
             <Font name="Arial Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="29.0" prefWidth="62.0" style="-fx-background-color: #2E64FE;" text="Voltar" textFill="WHITE">
+      <ImageView fitHeight="57.0" fitWidth="48.0" layoutX="14.0" layoutY="388.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/voltar.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Button>
+      </ImageView>
     </children>
 
 </AnchorPane>

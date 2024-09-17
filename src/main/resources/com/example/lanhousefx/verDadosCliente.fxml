@@ -31,14 +31,6 @@
                 <Font name="Arial Bold Italic" size="13.0" />
             </font>
         </Button>
-      <Button layoutX="12.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #2E64FE;" text="Voltar" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Button>
       <Button layoutX="27.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#onExcluirClicked" prefHeight="51.0" prefWidth="111.0" style="-fx-background-color: #2E64FE;" text="Deletar Conta" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -126,5 +118,13 @@
             </Label>
          </children>
       </GridPane>
+      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="14.0" layoutY="521.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/voltar.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
     </children>
 </AnchorPane>
