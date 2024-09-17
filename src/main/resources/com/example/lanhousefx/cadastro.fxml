@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,6 +18,9 @@
          <image>
             <Image url="@../../../img/Warthog.jpg" />
          </image>
+         <effect>
+            <BoxBlur />
+         </effect>
       </ImageView>
       <AnchorPane layoutX="114.0" layoutY="28.0" prefHeight="376.0" prefWidth="511.0" style="-fx-background-color: #FAFAFA;">
          <children>
@@ -73,14 +77,14 @@
                   <Font name="Arial Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #2E64FE;" text="Sair" textFill="#f5f5f5">
-               <font>
-                  <Font name="Arial Bold Italic" size="12.0" />
-               </font>
+            <ImageView fitHeight="59.0" fitWidth="58.0" layoutX="14.0" layoutY="314.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/voltar.png" />
+               </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

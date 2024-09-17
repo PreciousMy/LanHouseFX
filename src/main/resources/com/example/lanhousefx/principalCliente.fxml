@@ -27,13 +27,6 @@
             <BoxBlur />
          </effect>
       </ImageView>
-      <Button layoutX="705.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #2986cc;" text="Sair" textFill="WHITESMOKE">
-         <font>
-            <Font size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
       <MenuBar prefHeight="22.0" prefWidth="172.0" style="-fx-background-color: #2986cc;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <menus>
             <Menu mnemonicParsing="false" text="Cliente">
@@ -118,5 +111,13 @@
             </VBox>
          </children>
       </HBox>
+      <Button layoutX="681.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="46.0" prefWidth="74.0" style="-fx-background-color: #2986cc; -fx-background-radius: 12;" text="Sair" textFill="WHITESMOKE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

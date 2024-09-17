@@ -76,14 +76,6 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <Button layoutX="465.0" layoutY="427.0" mnemonicParsing="false" onMouseClicked="#onVoltarClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #2E64FE;" text="Voltar" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Arial Bold Italic" size="13.0" />
-               </font>
-            </Button>
             <GridPane layoutX="40.0" layoutY="333.0" prefHeight="125.0" prefWidth="134.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -127,6 +119,14 @@
                   </Label>
                </children>
             </GridPane>
+            <ImageView fitHeight="64.0" fitWidth="51.0" layoutX="488.0" layoutY="411.0" onMouseClicked="#onVoltarClicked" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/voltar.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
                 </children>
             </AnchorPane>
         </children>

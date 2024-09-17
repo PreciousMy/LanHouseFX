@@ -55,14 +55,6 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button focusTraversable="false" layoutX="497.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#onSairClicked" style="-fx-background-color: #5882FA;" text="Cancelar" textFill="WHITESMOKE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
       <TableView fx:id="generosAtual" focusTraversable="false" layoutX="22.0" layoutY="218.0" prefHeight="134.0" prefWidth="106.0" />
       <TableView fx:id="generosBanco" focusTraversable="false" layoutX="144.0" layoutY="218.0" prefHeight="134.0" prefWidth="106.0" />
       <Button focusTraversable="false" layoutX="89.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#onSalvarNomeClicked" style="-fx-background-color: #5882FA;" text="Alterar" textFill="WHITESMOKE">
@@ -81,5 +73,13 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="515.0" layoutY="313.0" onMouseClicked="#onSairClicked" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/voltar.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>
