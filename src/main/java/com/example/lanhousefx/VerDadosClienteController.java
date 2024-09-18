@@ -60,7 +60,7 @@ public class VerDadosClienteController {
             DaoFactory.createClienteDao().deletarPorId(c.getIdCliente());
             Alerta.novoAlerta(null,null,"Conta deletada com Exito", Alert.AlertType.INFORMATION);
             try {
-                Application.atualizaCena("principalCliente.fxml");
+                Application.atualizaCena("login.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
