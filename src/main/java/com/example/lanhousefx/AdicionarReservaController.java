@@ -6,6 +6,7 @@ import com.example.lanhousefx.Model.entities.Cliente;
 import com.example.lanhousefx.Model.entities.Jogos;
 import com.example.lanhousefx.Model.entities.Reserva;
 import com.example.lanhousefx.utils.Alerta;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -92,7 +93,12 @@ public class AdicionarReservaController {
                 };
             }
         });
+
+        TableColumn<Jogos, String> colunaConsole = new TableColumn<>("Console");
+        colunaConsole.setCellValueFactory(param -> new SimpleStringProperty(DaoFactory.createJogosDao().nomeConsole(param.getValue().getIdJogo())));
+
         tabelaJogos.getColumns().add(colunaJogo);
+        tabelaJogos.getColumns().add(colunaConsole);
 
         ObservableList<Jogos> jogos = FXCollections.observableArrayList(DaoFactory.createJogosDao().procurarTodos());
 
@@ -164,7 +170,8 @@ public class AdicionarReservaController {
         java.util.Date hora = sdf.parse(horario.getText());
         for(Reserva r : reservas){
             hora = new Time(hora.getTime());
-            if(Date.valueOf(data.getValue()).equals(r.getDataReserva()) && hora.equals(r.getTempo())){
+            if(Date.valueOf(data.getValue()).equals(r.getDataReserva()) && hora.equals(r.getTempo()) &&
+                tabelaJogos.getSelectionModel().getSelectedItem().getIdJogo() == r.getIdJogo()){
                 return true;
             }
         }

@@ -57,6 +57,9 @@ public class VerReservaClienteController {
         TableColumn<Reserva, String> colunaJogo = new TableColumn<>("Jogo");
         colunaJogo.setCellValueFactory(param -> new SimpleStringProperty(DaoFactory.createJogosDao().procurarPorId(param.getValue().getIdJogo()).getNome()));
 
+        TableColumn<Reserva, String> colunaConsole = new TableColumn<>("Console");
+        colunaConsole.setCellValueFactory(param -> new SimpleStringProperty(DaoFactory.createJogosDao().nomeConsole(param.getValue().getIdJogo())));
+
         TableColumn<Reserva, String> colunaPreco = new TableColumn<>("Preço");
         colunaPreco.setCellValueFactory(param -> new SimpleStringProperty("R$ "+param.getValue().getPreco()));
 
@@ -67,6 +70,7 @@ public class VerReservaClienteController {
         tabelaReserva.getColumns().add(colunaDataReserva);
         tabelaReserva.getColumns().add(colunaTempo);
         tabelaReserva.getColumns().add(colunaJogo);
+        tabelaReserva.getColumns().add(colunaConsole);
         tabelaReserva.getColumns().add(colunaPreco);
 
         List<Reserva> reservas = DaoFactory.createReservaDao().procurarTodos();
